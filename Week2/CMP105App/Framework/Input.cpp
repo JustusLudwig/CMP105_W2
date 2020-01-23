@@ -25,6 +25,32 @@ bool Input::isKeyDown(int key)
 	return false;
 }
 
+void Input::setLastKeys()
+{
+	for (int i = 0; i < 256; i++)
+	{
+		lastkeys[i] = keys[i];
+	}
+}
+
+bool Input::isJustPressed(int key)
+{
+	if (keys[key] && !lastkeys[key])
+	{
+	return true;
+	}
+	return false;
+}
+
+bool Input::isJustReleased (int key)
+{
+	if (!keys[key] && lastkeys[key])
+	{
+	return true;
+	}
+	return false;
+}
+
 void Input::setMouseX(int lx)
 {
 	mouse.x = lx;

@@ -20,6 +20,9 @@ public:
 	void setKeyDown(int key);
 	void setKeyUp(int key);
 	bool isKeyDown(int key);
+	bool isJustPressed(int key);
+	bool isJustReleased(int key);
+	void setLastKeys();
 
 	// Functions are mouse input, including getting and setting current position and mouse button presses.
 	void setMouseX(int lx);
@@ -35,6 +38,8 @@ public:
 private:
 	// Array of booleans representing keys (pressed = true, released = false)
 	bool keys[256]{ false };
+
+	bool lastkeys[256]{ false };
 	// Mouse variable
 	Mouse mouse;
 };

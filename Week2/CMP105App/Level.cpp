@@ -17,8 +17,24 @@ Level::~Level()
 // handle user input
 void Level::handleInput()
 {
+	if (input->isKeyDown(sf::Keyboard::W)) 
+	{
+		input->setKeyUp(sf::Keyboard::W);
+		std::cout << "The W key was pressed\n";
+	}
 
+	if (input->isKeyDown(sf::Keyboard::J) && input->isKeyDown(sf::Keyboard::K) && input->isKeyDown(sf::Keyboard::L))
+	{
+		input->setKeyUp(sf::Keyboard::J);
+		input->setKeyUp(sf::Keyboard::K);
+		input->setKeyUp(sf::Keyboard::L);
+		std::cout << "The keys J,K and L were pressed\n";
+	}
 
+	if (input->isJustPressed(sf::Keyboard::Q))
+	{
+		std::cout << "Yeeeaah\n";
+	}
 }
 
 // Update game objects
